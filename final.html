@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberSecurity Fundamentals</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <h1 class="logo">CyberSecurity Fundamentals</h1>
+            <ul class="nav-links">
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-overlay">
+            <div class="hero-content">
+                <h2>Understanding Cybersecurity Basics</h2>
+                <p>Learn about the CIA Triad, authentication, and how data is protected.</p>
+            </div>
+        </div>
+    </section>
+    <div class="hero-overlay">
+        <div class="hero-content">
+            <h2>Understanding the CIA Triad & Authentication</h2>
+            <h3>Computer & Information Science - Seaway Tech</h3>
+            <p>
+                Explore the core principles every cybersecurity professional must
+                know — Confidentiality, Integrity, Availability, and how we prove who
+                we are in a digital world.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#cia" class="btn">Explore the Triad</a>
+                <a href="#auth" class="btn btn-secondary">Learn Authentication</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="cia" class="cia-section">
+    <h2>The CIA Framework</h2>
+    <h3>Core Framework</h3>
+
+    <p class="cia-intro">
+        Data is a valuable asset. The primary goal of cybersecurity is to
+        maintain three critical properties — collectively known as the CIA
+        Triad — for all data, all the time.
+    </p>
+
+    <div class="card-container">
+
+        <div class="card">
+            <h3>Confidentiality</h3>
+            <h4>Data is not revealed</h4>
+
+            <p>
+                Protection against unauthorized access. Only those with
+                proper permission should ever be able to read or view the data.
+            </p>
+
+            <p>
+                Think of it as a locked diary — only the owner (or those granted
+                access) can read it.
+            </p>
+
+            <div class="highlight">
+                <strong>REAL-WORLD BREACH</strong>
+                <p>
+                    Edward Snowden's 2013 leak of classified NSA government
+                    data is a landmark example of a Confidentiality breach.
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Integrity</h3>
+            <h4>Data is intact - not modified or corrupted</h4>
+
+            <p>
+                Protection against unauthorized modification. Data must
+                remain accurate and trustworthy from the moment it is created
+                until it is accessed.
+            </p>
+
+            <p>
+                If someone changes your grade in the grade book without
+                permission, that's an Integrity breach.
+            </p>
+
+            <div class="highlight">
+                <strong>REAL-WORLD BREACH</strong>
+                <p>
+                    The Stuxnet worm secretly altered code on Iranian centrifuge
+                    machines, causing them to spin too fast and physically break —
+                    a classic Integrity attack.
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Availability</h3>
+            <h4>Data is accessible to allowed users</h4>
+
+            <p>
+                Protection against denial of service. Authorized users must be
+                able to access data and systems whenever they legitimately
+                need them.
+            </p>
+
+            <p>
+                A website that is always down, or an account that stays locked,
+                fails the Availability test.
+            </p>
+
+            <div class="highlight">
+                <strong>REAL-WORLD BREACH</strong>
+                <p>
+                    The Mirai Botnet used 145,000+ infected cameras and devices
+                    to flood security journalist Brian Krebs' website with traffic,
+                    crashing it for 4 days — a textbook DDoS / Availability breach.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <p class="cia-footer">
+        <strong>Security Formula:</strong> Protection = Prevention + (Detection + Response).
+        Every cybersecurity technique fits into at least one of these three elements,
+        and every element maps back to the CIA Triad.
+    </p>
+</section>
+</body>
+</html>
