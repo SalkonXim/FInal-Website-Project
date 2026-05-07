@@ -1,139 +1,695 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CyberSecurity Fundamentals</title>
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CyberSecurity Fundamentals</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Poppins', sans-serif;
+      background:#0b1020;
+      color:#e8ecf1;
+      line-height:1.7;
+    }
+
+    img{
+      width:100%;
+      display:block;
+    }
+
+    a{
+      text-decoration:none;
+      color:white;
+    }
+
+    section{
+      padding:100px 8%;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:60px;
+    }
+
+    .section-title h2{
+      font-size:2.8rem;
+      color:#4fc3f7;
+      margin-bottom:10px;
+    }
+
+    .section-title p{
+      color:#b0bec5;
+      max-width:800px;
+      margin:auto;
+    }
+
+    header{
+      position:fixed;
+      width:100%;
+      top:0;
+      z-index:999;
+      background:rgba(3,8,20,0.92);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+
+    nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:18px 8%;
+    }
+
+    .logo{
+      font-size:1.4rem;
+      font-weight:700;
+      color:#4fc3f7;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:22px;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a{
+      font-size:0.95rem;
+      transition:0.3s;
+    }
+
+    .nav-links a:hover{
+      color:#4fc3f7;
+    }
+
+
+    .hero{
+      min-height:100vh;
+      background:
+      linear-gradient(rgba(2,12,27,0.82), rgba(2,12,27,0.82)),
+      url('https://images.unsplash.com/photo-1510511459019-5dda7724fd87?q=80&w=2070&auto=format&fit=crop')
+      no-repeat center center/cover;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:120px 8%;
+    }
+
+    .hero-content{
+      max-width:900px;
+    }
+
+    .hero h1{
+      font-size:4rem;
+      margin-bottom:20px;
+      line-height:1.2;
+    }
+
+    .hero h3{
+      color:#4fc3f7;
+      margin-bottom:20px;
+      font-weight:500;
+    }
+
+    .hero p{
+      font-size:1.1rem;
+      color:#d4dbe2;
+      margin-bottom:35px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:14px 30px;
+      border-radius:8px;
+      font-weight:600;
+      transition:0.3s;
+      display:inline-block;
+    }
+
+    .btn-primary{
+      background:#4fc3f7;
+      color:#08131f;
+    }
+
+    .btn-primary:hover{
+      background:#81d4fa;
+      transform:translateY(-3px);
+    }
+
+    .btn-secondary{
+      border:2px solid #4fc3f7;
+      color:#4fc3f7;
+    }
+
+    .btn-secondary:hover{
+      background:#4fc3f7;
+      color:#08131f;
+    }
+
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(300px,1fr));
+      gap:30px;
+    }
+
+    .card{
+      background:#121a2f;
+      padding:30px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,0.08);
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-8px);
+      border-color:#4fc3f7;
+    }
+
+    .card h3{
+      color:#4fc3f7;
+      margin-bottom:5px;
+      font-size:1.7rem;
+    }
+
+    .card h4{
+      margin-bottom:20px;
+      color:#90caf9;
+      font-weight:500;
+    }
+
+    .card p{
+      margin-bottom:18px;
+      color:#d0d7df;
+    }
+
+    .highlight{
+      margin-top:20px;
+      background:#0d2538;
+      border-left:4px solid #4fc3f7;
+      padding:18px;
+      border-radius:8px;
+      color:#b8dfff;
+    }
+
+    .formula{
+      margin-top:50px;
+      text-align:center;
+      background:#0d2538;
+      padding:20px;
+      border-radius:12px;
+      color:#dbefff;
+      font-weight:600;
+    }
+
+    .info-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:30px;
+    }
+
+    .info-box{
+      background:#121a2f;
+      padding:28px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .info-box h3{
+      color:#4fc3f7;
+      margin-bottom:15px;
+    }
+
+    ul{
+      padding-left:20px;
+    }
+
+    li{
+      margin-bottom:10px;
+    }
+
+    .contact-container{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:40px;
+    }
+
+    .contact-form{
+      background:#121a2f;
+      padding:30px;
+      border-radius:18px;
+    }
+
+    .contact-form input,
+    .contact-form textarea{
+      width:100%;
+      padding:14px;
+      margin-bottom:18px;
+      border:none;
+      border-radius:8px;
+      background:#1b2744;
+      color:white;
+    }
+
+    .contact-form button{
+      border:none;
+      cursor:pointer;
+    }
+
+    footer{
+      text-align:center;
+      padding:30px;
+      background:#050912;
+      border-top:1px solid rgba(255,255,255,0.08);
+      color:#90a4ae;
+    }
+
+    @media(max-width:900px){
+
+      .hero h1{
+        font-size:2.7rem;
+      }
+
+      .contact-container{
+        grid-template-columns:1fr;
+      }
+
+      nav{
+        flex-direction:column;
+        gap:15px;
+      }
+
+      .nav-links{
+        justify-content:center;
+      }
+    }
+
+  </style>
 </head>
+
 <body>
 
-    <header>
-        <nav class="navbar">
-            <h1 class="logo">CyberSecurity Fundamentals</h1>
-            <ul class="nav-links">
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <nav>
+      <div class="logo">CyberSecurity Fundamentals</div>
 
-    <section class="hero">
-        <div class="hero-overlay">
-            <div class="hero-content">
-                <h2>Understanding Cybersecurity Basics</h2>
-                <p>Learn about the CIA Triad, authentication, and how data is protected.</p>
-            </div>
-        </div>
-    </section>
-    <div class="hero-overlay">
-        <div class="hero-content">
-            <h2>Understanding the CIA Triad & Authentication</h2>
-            <h3>Computer & Information Science - Seaway Tech</h3>
-            <p>
-                Explore the core principles every cybersecurity professional must
-                know — Confidentiality, Integrity, Availability, and how we prove who
-                we are in a digital world.
-            </p>
+      <div class="nav-links">
+        <a href="#cia">CIA Triad</a>
+        <a href="#states">Data States</a>
+        <a href="#authentication">Auth (AAA)</a>
+        <a href="#passwords">Passwords</a>
+        <a href="#hashing">Hashing</a>
+        <a href="#methods">Auth Methods</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
 
-            <div class="hero-buttons">
-                <a href="#cia" class="btn">Explore the Triad</a>
-                <a href="#auth" class="btn btn-secondary">Learn Authentication</a>
-            </div>
-        </div>
+  <section class="hero">
+    <div class="hero-content">
+
+      <h1>Understanding the CIA Triad & Authentication</h1>
+
+      <h3>Computer & Information Science - Seaway Tech</h3>
+
+      <p>
+        Explore the core principles every cybersecurity professional must know —
+        Confidentiality, Integrity, Availability, and how we prove who we are
+        in a digital world.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#cia" class="btn btn-primary">Explore the Triad</a>
+        <a href="#authentication" class="btn btn-secondary">Learn Authentication</a>
+      </div>
+
     </div>
-</section>
+  </section>
 
-<section id="cia" class="cia-section">
-    <h2>The CIA Framework</h2>
-    <h3>Core Framework</h3>
+  <section id="cia">
 
-    <p class="cia-intro">
-        Data is a valuable asset. The primary goal of cybersecurity is to
-        maintain three critical properties — collectively known as the CIA
-        Triad — for all data, all the time.
-    </p>
+    <div class="section-title">
+      <h2>The CIA Framework</h2>
+      <p>
+        Data is a valuable asset. The primary goal of cybersecurity is to maintain
+        three critical properties — collectively known as the CIA Triad — for all
+        data, all the time.
+      </p>
+    </div>
 
-    <div class="card-container">
+    <div class="cards">
 
-        <div class="card">
-            <h3>Confidentiality</h3>
-            <h4>Data is not revealed</h4>
+      <div class="card">
+        <h3>Confidentiality</h3>
+        <h4>Data is not revealed</h4>
 
-            <p>
-                Protection against unauthorized access. Only those with
-                proper permission should ever be able to read or view the data.
-            </p>
+        <p>
+          Protection against unauthorized access. Only those with proper permission
+          should ever be able to read or view the data.
+        </p>
 
-            <p>
-                Think of it as a locked diary — only the owner (or those granted
-                access) can read it.
-            </p>
+        <p>
+          Think of it as a locked diary — only the owner (or those granted access)
+          can read it.
+        </p>
 
-            <div class="highlight">
-                <strong>REAL-WORLD BREACH</strong>
-                <p>
-                    Edward Snowden's 2013 leak of classified NSA government
-                    data is a landmark example of a Confidentiality breach.
-                </p>
-            </div>
+        <div class="highlight">
+          <strong>REAL-WORLD BREACH</strong><br><br>
+          Edward Snowden's 2013 leak of classified NSA government data is a landmark
+          example of a Confidentiality breach.
         </div>
+      </div>
 
-        <div class="card">
-            <h3>Integrity</h3>
-            <h4>Data is intact - not modified or corrupted</h4>
+      <div class="card">
+        <h3>Integrity</h3>
+        <h4>Data is intact - not modified or corrupted</h4>
 
-            <p>
-                Protection against unauthorized modification. Data must
-                remain accurate and trustworthy from the moment it is created
-                until it is accessed.
-            </p>
+        <p>
+          Protection against unauthorized modification. Data must remain accurate
+          and trustworthy from the moment it is created until it is accessed.
+        </p>
 
-            <p>
-                If someone changes your grade in the grade book without
-                permission, that's an Integrity breach.
-            </p>
+        <p>
+          If someone changes your grade in the grade book without permission,
+          that's an Integrity breach.
+        </p>
 
-            <div class="highlight">
-                <strong>REAL-WORLD BREACH</strong>
-                <p>
-                    The Stuxnet worm secretly altered code on Iranian centrifuge
-                    machines, causing them to spin too fast and physically break —
-                    a classic Integrity attack.
-                </p>
-            </div>
+        <div class="highlight">
+          <strong>REAL-WORLD BREACH</strong><br><br>
+          The Stuxnet worm secretly altered code on Iranian centrifuge machines,
+          causing them to spin too fast and physically break — a classic Integrity attack.
         </div>
+      </div>
 
-        <div class="card">
-            <h3>Availability</h3>
-            <h4>Data is accessible to allowed users</h4>
+      <div class="card">
+        <h3>Availability</h3>
+        <h4>Data is accessible to allowed users</h4>
 
-            <p>
-                Protection against denial of service. Authorized users must be
-                able to access data and systems whenever they legitimately
-                need them.
-            </p>
+        <p>
+          Protection against denial of service. Authorized users must be able to
+          access data and systems whenever they legitimately need them.
+        </p>
 
-            <p>
-                A website that is always down, or an account that stays locked,
-                fails the Availability test.
-            </p>
+        <p>
+          A website that is always down, or an account that stays locked,
+          fails the Availability test.
+        </p>
 
-            <div class="highlight">
-                <strong>REAL-WORLD BREACH</strong>
-                <p>
-                    The Mirai Botnet used 145,000+ infected cameras and devices
-                    to flood security journalist Brian Krebs' website with traffic,
-                    crashing it for 4 days — a textbook DDoS / Availability breach.
-                </p>
-            </div>
+        <div class="highlight">
+          <strong>REAL-WORLD BREACH</strong><br><br>
+          The Mirai Botnet used 145,000+ infected cameras and devices to flood
+          Brian Krebs' website with traffic, crashing it for 4 days —
+          a textbook DDoS / Availability breach.
         </div>
+      </div>
 
     </div>
 
-    <p class="cia-footer">
-        <strong>Security Formula:</strong> Protection = Prevention + (Detection + Response).
-        Every cybersecurity technique fits into at least one of these three elements,
-        and every element maps back to the CIA Triad.
-    </p>
+    <div class="formula">
+      Security Formula:
+      Protection = Prevention + (Detection + Response)
+    </div>
+
+  </section>
+
+  <section id="states">
+
+    <div class="section-title">
+      <h2>Three States of Data</h2>
+      <p>
+        Data exists in different forms and each state requires specific protections.
+      </p>
+    </div>
+
+    <div class="info-grid">
+
+      <div class="info-box">
+        <h3>Data at Rest</h3>
+        <p>
+          Data stored on hard drives, databases, USB devices, or cloud storage.
+        </p>
+
+        <ul>
+          <li>Protected with encryption</li>
+          <li>Requires strong access control</li>
+          <li>Examples: Files, backups, databases</li>
+        </ul>
+      </div>
+
+      <div class="info-box">
+        <h3>Data in Transit</h3>
+        <p>
+          Data moving across networks or the internet.
+        </p>
+
+        <ul>
+          <li>Protected with HTTPS and VPNs</li>
+          <li>Can be intercepted without encryption</li>
+          <li>Examples: Emails, web traffic</li>
+        </ul>
+      </div>
+
+      <div class="info-box">
+        <h3>Data in Use</h3>
+        <p>
+          Data actively being processed in memory or applications.
+        </p>
+
+        <ul>
+          <li>Protected through permissions</li>
+          <li>Vulnerable to malware attacks</li>
+          <li>Examples: Open documents, active sessions</li>
+        </ul>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section id="authentication">
+
+    <div class="section-title">
+      <h2>Authentication & AAA</h2>
+      <p>
+        AAA stands for Authentication, Authorization, and Accounting.
+      </p>
+    </div>
+
+    <div class="info-grid">
+
+      <div class="info-box">
+        <h3>Authentication</h3>
+        <p>
+          Verifies identity. Proves you are who you claim to be.
+        </p>
+      </div>
+
+      <div class="info-box">
+        <h3>Authorization</h3>
+        <p>
+          Determines what resources and systems you can access.
+        </p>
+      </div>
+
+      <div class="info-box">
+        <h3>Accounting</h3>
+        <p>
+          Tracks user actions and logs activity for auditing and security.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section id="passwords">
+
+    <div class="section-title">
+      <h2>Password Security</h2>
+      <p>
+        Passwords remain one of the most common authentication methods.
+      </p>
+    </div>
+
+    <div class="info-grid">
+
+      <div class="info-box">
+        <h3>Strong Passwords</h3>
+
+        <ul>
+          <li>Use 12+ characters</li>
+          <li>Mix uppercase, lowercase, numbers & symbols</li>
+          <li>Avoid dictionary words</li>
+        </ul>
+      </div>
+
+      <div class="info-box">
+        <h3>Password Managers</h3>
+
+        <p>
+          Password managers securely store and generate complex passwords.
+        </p>
+      </div>
+
+      <div class="info-box">
+        <h3>Common Attacks</h3>
+
+        <ul>
+          <li>Brute Force</li>
+          <li>Dictionary Attacks</li>
+          <li>Credential Stuffing</li>
+          <li>Phishing</li>
+        </ul>
+      </div>
+
+    </div>
+
 </section>
+
+  <section id="hashing">
+
+    <div class="section-title">
+      <h2>Hashing</h2>
+
+      <p>
+        Hashing converts data into a fixed-length value used for verification and integrity.
+      </p>
+    </div>
+
+    <div class="info-grid">
+
+      <div class="info-box">
+        <h3>What is Hashing?</h3>
+
+        <p>
+          A one-way mathematical function that transforms data into a unique hash value.
+        </p>
+      </div>
+
+      <div class="info-box">
+        <h3>Popular Algorithms</h3>
+
+        <ul>
+          <li>SHA-256</li>
+          <li>SHA-3</li>
+          <li>bcrypt</li>
+          <li>Argon2</li>
+        </ul>
+      </div>
+
+      <div class="info-box">
+        <h3>Password Storage</h3>
+
+        <p>
+          Passwords should never be stored in plain text — only hashed and salted.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section id="methods">
+
+    <div class="section-title">
+      <h2>Authentication Methods</h2>
+
+      <p>
+        Different authentication methods provide varying levels of security.
+      </p>
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+        <h3>Something You Know</h3>
+        <p>
+          Passwords, PINs, passphrases, and security questions.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Something You Have</h3>
+        <p>
+          Security tokens, smartphones, smart cards, or OTP devices.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Something You Are</h3>
+        <p>
+          Biometrics such as fingerprints, face recognition, or retina scans.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section id="contact">
+
+    <div class="section-title">
+      <h2>Contact</h2>
+
+      <p>
+        Have questions about cybersecurity fundamentals? Reach out below.
+      </p>
+    </div>
+
+    <div class="contact-container">
+
+      <div>
+        <h3 style="margin-bottom:20px; color:#4fc3f7;">
+          CyberSecurity Fundamentals
+        </h3>
+
+        <p>
+          Learn the foundations of cybersecurity and authentication systems.
+          Understanding these concepts is essential for anyone entering IT,
+          networking, or cyber defense careers.
+        </p>
+      </div>
+
+      <form class="contact-form">
+
+        <input type="text" placeholder="Your Name" required>
+
+        <input type="email" placeholder="Your Email" required>
+
+        <textarea rows="6" placeholder="Your Message"></textarea>
+
+        <button class="btn btn-primary">
+          Send Message
+        </button>
+
+      </form>
+
+    </div>
+
+  </section>
+
+  <footer>
+    © 2026 CyberSecurity Fundamentals | Seaway Tech
+  </footer>
+
 </body>
 </html>
